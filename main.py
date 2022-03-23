@@ -43,7 +43,11 @@ def parens_match_iterative(mylist):
     False
     """
     ### TODO
-    pass
+  counter = iterate(parens_update, 0, mylist)
+  if counter == 0:
+    return True
+  else:
+    return False
 
 
 def parens_update(current_output, next_input):
@@ -59,7 +63,11 @@ def parens_update(current_output, next_input):
       the updated value of `current_output`
     """
     ###TODO
-    pass
+    if next_input == "(":
+      current_output += 1
+    elif next_input == ")":
+      current_output -= 1
+    return current_output
 
 
 def test_parens_match_iterative():
@@ -88,7 +96,17 @@ def parens_match_scan(mylist):
     
     """
     ###TODO
-    pass
+  list = []
+  for parens in mylist:
+    list.append(paren_map(parens))
+
+  tuple  = scan(plus, 0, list)
+  value = reduce(min_f, 0, outputTuple[0])
+  if tuple == 0 and value == 0:
+    return True
+  else:
+    return False
+  
 
 def scan(f, id_, a):
     """
