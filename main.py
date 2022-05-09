@@ -165,7 +165,6 @@ def parens_match_dc(mylist):
     Returns:
       True if parens_match_dc_helper returns (0,0); otherwise False
     """
-    # done.
     n_unmatched_left, n_unmatched_right = parens_match_dc_helper(mylist)
     return n_unmatched_left==0 and n_unmatched_right==0
 
@@ -179,7 +178,19 @@ def parens_match_dc_helper(mylist):
       parens_match_dc to return the final True or False value
     """
     ###TODO
-    pass
+    if len(mylist) == 1:
+        if mylist[0] == '(':
+            return (0, 1) # one unmatched (
+        elif mylist[0] == ')':
+            return (1, 0) # one unmatched )    
+    else:
+      right1, left1 =  parens_match_dc_helper(mylist[:len(mylist)//2])
+      right2, left2 =  parens_match_dc_helper(mylist[len(mylist)//2:])
+
+    if left1 >= rright2:
+        return (right1, (left1 - right2) + left2)
+    else:
+        return ( (right2 - left1) + right1, left2)
     
 
 def test_parens_match_dc():

@@ -28,3 +28,9 @@ Big O solution is O(n) for both
 
 
 - **f.**
+
+W = W(n/2) + 1
+Big O is O(n)
+
+S = S(n/2) + 1
+Big O is O(lgn)
